@@ -19,7 +19,7 @@ provider "aws" {
 variable "ec2_ami" {
   type = string
   description = "This variable is used to store ami id of ec2 instance"
-  default = "ami-0b5eea76982371e91" 
+  default = "ami-0aa7d40eeae50c9a9"     // Use latest ami id from AWS Console
 }
 
 #Variable Block for ec2 instance type
@@ -31,7 +31,7 @@ variable "ec2_type" {
 
 #EC2 Resource Block
 resource "aws_instance" "my_ec2" {
-  ami                     = "${var.ec2_ami}"
+  ami                     = "${var.ec2_ami}"      // ami = var.ec2_ami
   instance_type           = "${var.ec2_type}"
   security_groups = ["ssh"]
   tags = {
